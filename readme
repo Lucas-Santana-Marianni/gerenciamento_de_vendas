@@ -1,0 +1,79 @@
+Objetivo: Desenvolver um sistema de banco de dados para gerenciar informações de produtos, clientes e vendas em uma loja. O sistema deve permitir a administração eficiente dessas informações e a realização de consultas e operações básicas de manipulação de dados.
+
+Requisitos:
+
+Criação do Banco de Dados:
+
+Criar um banco de dados chamado sistema_vendas.
+Criação das Tabelas:
+
+Tabela Clientes: Contém informações sobre os clientes (identificador único, nome, email e telefone).
+Tabela Produtos: Contém informações sobre os produtos (identificador único, nome, preço e quantidade em estoque).
+Tabela Vendas: Registra as vendas realizadas, incluindo identificador único da venda, identificador do cliente, identificador do produto, quantidade vendida e data da venda.
+Inserção de Dados:
+
+Inserir pelo menos 3 registros na tabela Clientes, 3 registros na tabela Produtos e 5 registros na tabela Vendas.
+Consultas e Relatórios:
+
+Mostrar todas as vendas realizadas, incluindo o nome do cliente e do produto.
+Mostrar todas as compras realizadas por um cliente específico.
+Exibir o total de vendas realizadas por produto.
+Atualização e Deleção de Dados:
+
+Atualizar o estoque de um produto após uma venda.
+Atualizar as informações de um cliente.
+Deletar uma venda e, opcionalmente, deletar o cliente associado se não houver mais vendas relacionadas.
+Entrega:
+
+Arquivo SQL com todos os comandos necessários.
+Relatório com screenshots das consultas e explicações das operações implementadas.
+
+# Sistema de Gerenciamento de Vendas
+
+## Descrição do Projeto
+
+Este projeto é um sistema de gerenciamento de vendas para uma loja local. Ele foi desenvolvido utilizando SQL para criar e manipular um banco de dados que gerencia informações sobre produtos, clientes e vendas.
+
+## Funcionalidades
+
+- Criação e estruturação do banco de dados `sistema_vendas`.
+- Tabelas para armazenar informações sobre clientes, produtos e vendas.
+- Inserção de dados nas tabelas.
+- Consultas SQL para obtenção de relatórios sobre vendas.
+- Operações de atualização e deleção de dados.
+
+## Estrutura do Banco de Dados
+
+O banco de dados é composto por três tabelas principais:
+
+1. **Clientes:** Armazena informações dos clientes.
+2. **Produtos:** Armazena informações dos produtos disponíveis para venda.
+3. **Vendas:** Registra todas as transações de vendas realizadas.
+
+## Instruções de Uso
+
+1. Clone este repositório.
+2. Importe o arquivo `sistema_vendas.sql` em seu SGBD (por exemplo, MySQL ou MariaDB).
+3. Execute as queries SQL no seu SGBD para criar o banco de dados e as tabelas, e inserir os dados.
+4. Realize as consultas e operações conforme descrito no projeto.
+
+## Arquivo SQL
+
+O arquivo `sistema_vendas.sql` contém todos os comandos SQL necessários para a criação do banco de dados, tabelas, inserção de dados e consultas.
+
+## Relatório
+
+O relatório `Relatorio_Sistema_Vendas.pdf` contém screenshots das consultas realizadas e uma explicação sobre como as operações foram implementadas.
+
+## Requisitos
+
+- SGBD compatível com SQL (MySQL, MariaDB, etc.).
+- Editor de texto ou IDE para trabalhar com SQL.
+
+## Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para enviar pull requests ou abrir issues para melhorias e correções.
+
+## Licença
+
+Este projeto é distribuído sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
