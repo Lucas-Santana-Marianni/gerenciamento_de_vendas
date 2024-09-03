@@ -1,0 +1,72 @@
+CREATE DATABASE sistema_vendas;
+USE sistema_vendas;
+
+CREATE TABLE Clientes (
+    cliente_id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) not null,
+    email VARCHAR(100),
+    telefone VARCHAR(20)
+);
+
+CREATE TABLE Produtos (
+    produto_id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) not null,
+    preco DECIMAL(10, 2),
+    quantidade_em_estoque INT
+);
+
+CREATE TABLE Vendas (
+    venda_id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT,
+    produto_id INT,
+    quantidade_vendida INT,
+    data_venda DATE,
+    FOREIGN KEY (cliente_id) REFERENCES Clientes(cliente_id),
+    FOREIGN KEY (produto_id) REFERENCES Produtos(produto_id)
+);
+
+insert into Clientes (nome, email, telefone) values
+('Pedro da Silva', 'pedro.silva@gmail.com', '4823456789'),
+('Joana Lima', 'jo.lima@gmail.com', '4356879123'),
+('João Melo', 'joão.melo@gmail.com', '2123456766');
+
+insert into Produtos (nome, preco, quantidade_em_estoque) values
+('Notebook', 3000.00, 15),
+('Playstation 5', 3500.00, 10),
+('Smart wach', 1200.00, 17);
+
+INSERT INTO Vendas (cliente_id, produto_id, quantidade_vendida, data_venda) VALUES 
+(1, 3, 1, '2024-03-11'),
+(2, 1, 3, '2024-12-15'),
+(3, 3, 1, '2024-07-28'),
+(1, 2, 1, '2024-09-20'),
+(1, 2, 3, '2024-06-30');
+
+SELECT Vendas.venda_id, Clientes.nome AS nome_cliente, Produtos.nome AS nome_produto, Vendas.quantidade_vendida, Vendas.data_venda
+FROM Vendas
+JOIN Clientes ON Vendas.cliente_id = Clientes.cliente_id
+JOIN Produtos ON Vendas.produto_id = Produtos.produto_id;
+
+SELECT Vendas.venda_id, Produtos.nome AS nome_produto, Vendas.quantidade_vendida, Vendas.data_venda
+FROM Vendas
+JOIN Produtos ON Vendas.produto_id = Produtos.produto_id
+WHERE Vendas.cliente_id = 1;
+
+SELECT Produtos.nome AS nome_produto, SUM(Vendas.quantidade_vendida) AS total_vendas
+FROM Vendas
+JOIN Produtos ON Vendas.produto_id = Produtos.produto_id
+GROUP BY Produtos.nome;
+
+UPDATE Produtos
+SET quantidade_em_estoque = quantidade_em_estoque - (SELECT SUM(quantidade_vendida) FROM Vendas WHERE produto_id = 1)
+WHERE produto_id = 1;
+
+UPDATE Clientes
+SET nome = 'Pedro da Silva', email = 'pedro.silva@email.com', telefone = '4823456789'
+WHERE cliente_id = 1;
+
+DELETE FROM Vendas WHERE venda_id = 1;
+
+-- Opcional: deletar cliente se não tiver mais vendas associadas
+DELETE FROM Clientes WHERE cliente_id = 1 AND NOT EXISTS (SELECT 1 FROM Vendas WHERE cliente_id = 1);
+
