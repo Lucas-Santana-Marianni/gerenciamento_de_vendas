@@ -1,0 +1,31 @@
+# Arquivos de configuração do sistema
+*.env
+*.DS_Store
+
+# Diretórios do sistema
+node_modules/
+dist/
+build/
+.idea/
+.vscode/
+__pycache__/
+
+# Arquivos SQL temporários ou backups
+*.sql~
+
+# Arquivos de log
+*.log
+*.log.*
+
+# Arquivos de relatório
+*.pdf
+
+# Arquivos binários gerados
+*.exe
+*.dll
+*.so
+*.o
+*.out
+
+# Ignorar arquivos de configuração locais
+*.local
